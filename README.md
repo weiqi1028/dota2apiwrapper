@@ -16,6 +16,14 @@ Dota2APIWrapper api = new Dota2APIWrapper(YOUR_API_KEY);
 ```java
 MatchDetail detail = api.getMatchDetails("1426751847"); // Pass in your match id as a String.
 ```
+- Get up to date heroes list.
+```java
+Map<Integer, Hero> heroes = api.getHeroes();
+```
+- Get up to date game items list.
+```java
+Map<Integer, Item> items = api.getGameItems();
+```
 MatchDetail class has a lot of getters to get the details of the match (e.g. which team won, players details, game mode, etc.).
 
 ## Notes
