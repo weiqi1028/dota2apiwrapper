@@ -36,6 +36,12 @@ public class Dota2APIWrapper {
         return new MatchHistoryImpl(result);
     }
     
+    public MatchHistory getRecentMatches() throws IOException {
+        MatchSearchOptions options = new MatchSearchOptions();
+        options.setMatchsRequested(25);
+        return getMatchHistory(options);
+    }
+    
     @SuppressWarnings("unchecked")
     private Map<String, Object> doGet(String query) throws IOException {
         URL url = new URL(query);
