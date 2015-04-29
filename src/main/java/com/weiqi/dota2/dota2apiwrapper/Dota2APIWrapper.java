@@ -13,6 +13,7 @@ public class Dota2APIWrapper {
 
     private String APIKey;
     private static final String GET_MATCH_DETAILS = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/?";
+    private static final String GET_MATCH_HISTORY = "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?";
     
     public Dota2APIWrapper(String key) {
         this.APIKey = key;
@@ -24,6 +25,15 @@ public class Dota2APIWrapper {
         Map<String, Object> map = doGet(query);
         Map<String, Object> result = (Map<String, Object>) map.get("result");
         return new MatchDetailImpl(result);
+    }
+    
+    @SuppressWarnings("unchecked")
+    public MatchHistory getMatchHistory(MatchSearchOptions options) throws IOException {
+        String query = GET_MATCH_HISTORY + "key=" + APIKey;
+        query = options.appendToQuery(query);
+        Map<String, Object> map = doGet(query);
+        Map<String, Object> result = (Map<String, Object>) map.get("result");
+        return new MatchHistoryImpl(result);
     }
     
     @SuppressWarnings("unchecked")

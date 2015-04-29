@@ -6,10 +6,14 @@ public enum GameMode {
     MID_ONLY(11), LEAST_PLAYED(12), NEW_PLAYER_POOL(13), COMPENDIUM_MATCHMAKING(14),
     CAPTAINS_DRAFT(15);
     
-    private final int mode;
+    private final int value;
     
-    GameMode(int mode) {
-        this.mode = mode;
+    private GameMode(int value) {
+        this.value = value;
+    }
+    
+    public int getValue() {
+        return value;
     }
     
 }

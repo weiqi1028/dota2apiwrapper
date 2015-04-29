@@ -1,11 +1,11 @@
 package com.weiqi.dota2.dota2apiwrapper;
 
-public enum LeaverStatus {
-    NONE(0), DISCONNECTED(1), DISCONNECTED_TOO_LONG(2), ABANDONED(3), AFK(4), NEVER_CONNECTED(5);
+public enum MatchSkill {
+    ANY(0), NORMAL(1), HIGH(2), VERY_HIGH(3);
     
     private final int value;
     
-    private LeaverStatus(int value) {
+    private MatchSkill(int value) {
         this.value = value;
     }
     
